@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<body>
+<div ng-cloak="" layout-gt-sm="row" layout="column">
+  <div flex-gt-sm="50" flex="">
+    <md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Interesting Movies</span>
+      </div>
+    </md-toolbar>
+  </div>
+</div>
+
+<div ng-cloak>
+  <md-content>
+    <md-tabs ng-show="popular_movies" md-dynamic-height md-border-bottom>
+      <md-tab label="popular movies">
+        <md-content class="md-padding">
+          <md-list flex="">
+            <md-list-item class="md-3-line md-long-text" ng-repeat="movie in popular_movies" ng-click="null">
+              <img ng-src="{{movie.activity.object.contentImage.dimensions.high.url}}" class="md-avatar" alt="no image">
+              <div class="md-list-item-text">
+                <h3>{{ movie.activity.title }}</h3>
+                <p>{{ movie.activity.object.content }}</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-tab>
+      <md-tab ng-show="top_rated_movies" label="top rated movies">
+        <md-content class="md-padding">
+          <md-list flex="">
+            <md-list-item class="md-3-line md-long-text" ng-repeat="movie in top_rated_movies" ng-click="null">
+              <img ng-src="{{movie.activity.object.contentImage.dimensions.high.url}}" class="md-avatar" alt="no image">
+              <div class="md-list-item-text">
+                <h3>{{ movie.activity.title }}</h3>
+                <p>{{ movie.activity.object.content }}</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+</body>
+</html>
